@@ -1,0 +1,81 @@
+******* VARIAVEIS E CONSTANTES *******
+
+$nome = "Emerson";
+$sobrenome = "Santos";
+
+const PAIS = "Brasil";
+
+echo "Muito prazer, $nome $sobrenome! Voce mora no " . PAIS;
+
+
+=======    REGRAS PARA IDENTIFICADORES ======
+- Variaveis sem pre começam com o simbolo $
+- O segundo pode ser letra ou simbolo de underline _
+- Aceita caracteres [a-z], [A-Z], [0 - 9] e [_]
+- Aceita caracteres da tabela ASCII a partir de 128
+- Aceita caracteres acentuados 
+- A linguagem é case sensitive em relação a nomes, faz distinção de maiusculas e minusculas
+- Nomes especiais como $this nao podem ser usados, sao nomes reservados no PHP
+
+
+======= RECOMENDAÇÕES ========
+- Tente dar nomes claros e de facil identificações
+- Evite nomes muito curtos ou muito longos
+- Defina um padrao e siga em todo o projeto
+- Para variaveis, de preferencia a letras minusculas
+- Para constantes, de preferencia para letras maiusculas
+- Use camelCase para metodos e atributos ($nomeCompletoCliente)
+- Use SNAKE_CASE para nomear constantes ($telefone_contato_fornecedor)
+
+
+***** TIPOS PRIMITIVOS *****
+
+string           - sequencia de letras, numeros e simbolos, sempre representados entre aspas
+int ou integer   - Um valor numerico inteiro, aquele que vem sem a parte decimal
+float ou double  - Um valor numerico real, que vem com a parte decimal, depois do ponto flutuante
+bool ou boolean  - Um valor logico ou Booleano, que aceita apenas os valores verdadeiro ou falso (true ou false) 
+
+
+- Escalares
+
+$sobrenome          $idade     $peso             $casado
+Silva (string)      34 (int)   85.9 (float)       true (bool)
+
+Podemos utilizar a coerção, informando antes da variavel
+
+$num = (int) "950"; neste caso seria string por estar entre aspas, mas forcei para int
+
+
+- Compostos
+
+array
+object
+
+
+- Especiais
+
+null
+resource
+callabe
+mixed
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
