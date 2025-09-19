@@ -61,6 +61,43 @@ mixed
 
 
 
+******* STRINGS ******
+
+"" - double quoted tem a interpretação do conteudo, se utilizar codigo de emoji ou  variavel por exemplo, irá exibir o emoji ou o resultado da variavel
+'' - single quoted nao tem interpretação do conteudo, se utilizar codigo de emoji por exemplo, irá exibir o codigo e nao o simbolo.
+   - Heredoc - pouco utilizadas
+   - Nowdoc - pouco utilizadas
+.  - Operador de ponto é o operador de concatenação.
+
+No caso quando houver const não irá exibir na tela com aspas simples e nem duplas, por nao haver o $ indicando variavel, neste caso tem que utilizar a concatenação
+Exemplo: 
+const ESTADO = "SP",
+echo "Moro no " . ESTADO;
+
+Nao podemos utilizar aspas duplas dentro de aspas duplas e nem aspas simples dentro de aspas simples, mas se utiliar aspas duplas pode utilizar dentro aspas simples
+e vice e versa. No exemplo abaixo para exibir corretamente teria que utilizar saida de escape
+
+$nom = "Rodigo";
+$snom = "Nogueira";
+
+echo "$nom \"Minotauto\" $snom";
+
+Exemplo de ESCAPE SEUQUENCES
+
+\n     nova linha
+\t     tabulação horizontal
+\\     barra invertida
+\$     Mostrar o sinal de sifrao
+\u{}   codigos unicodes
+
+
+
+
+
+
+
+
+
 
 
  
