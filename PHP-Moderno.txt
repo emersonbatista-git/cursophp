@@ -91,6 +91,31 @@ Exemplo de ESCAPE SEUQUENCES
 \u{}   codigos unicodes
 
 
+**** OPERADORES ARITIMETICOS *******
+
+No PHP se somar dois numeros entre aspas ele irá converter para int e somar.
+Sao chamados de operandos os numeros que estão antes e depois dos operadores.
+
++ - Adição
+- - Subtração
+* - Multiplicação
+/ - Divisão
+% - Modulo (resto de divisão)
+** - Exponenciação 
+
+ORDEM DE PRECEDENCIA
+
+
+()     - Nao é um operador, mas muda a ordem de execução
+**
+* / %
++ -
+
+
+
+ 
+
+
 
 
 
