@@ -8,17 +8,22 @@
 </head>
 <body>
     <header>
-        <h1>Resultado do processamento</h1>
+        
     </header>
    <main>
     
     <?php
-    $n = $_GET["nome"];
-    $s = $_GET ["sobrenome"]; 
-    echo "<p>É um prazer te conhecer, <strong>$n $s</strong>! Este é meu site!";
+   echo "<h1>Trabalhando com numeros aleatórios</h1>";
+   echo "Gerando um numero aleatorio entre 0 e 100...";
+   echo  "<br/>O valor gerado foi " . mt_rand(1,100);
     
     ?>
-    <p><a href="javascript:history.go(-1)">Voltar a página anterior</a></p>
+   
+  
+    <button onclick="javascript:document.location.reload()">&#x1F504; Gerar outro</button>
+   
+   
+   
    
 </main>
    
