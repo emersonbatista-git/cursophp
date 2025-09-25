@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <!-- Neste caso passou comando via post e get -->
+        <form action="superglobais.php?tipo=Aluno&turno=Noite" method="post"> 
+            <label for="user">Usuario:</label>
+            <input type="text" name="user" id="iduser">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="idsenha">
+
+            <input type="submit" value="Entrar">
+        </form>
+    </main>
+    
+</body>
+</html>
