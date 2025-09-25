@@ -147,26 +147,57 @@ Numeros criptografados
 random_int()
 
 
+******* SUPERGLOBAIS ********
+
+$_GET         - Recebe dados apenas por GET
+$_POST        - Recebe dados apenas por POST
+$_REQUEST     - Recebe dados das duas formas anteriores, inclusive simultaneo, formando um unico array
+$_COOKIES     - Aremazena os cookies de navegação de sua aplicação
+$_FILES       - Lê um arquivo, exemplo: importar um arquivo NFe XML
+$_SESSION     - Permite utilizar variaveis entre a nevagação
+$_ENV         - Variaveis de ambiante de servidor
+$_SERVER      - Mostra dados do servidor
+$GLOBALS      - Agrupa todas as superglobais
 
 
+********** FORMULARIO PHP RETROALILMENTADO *********
+
+<body>
+      
+     <?php 
+     $valor1 = $_GET['v1'] ?? 0;
+     $valor2 = $_GET['v2'] ?? 0;
+     
+     
+     ?>
+
+   <main>
+    <h1>Somador de valores</h1>
+    <form action="<?=$_SERVER['PHP_SELF']?>" method="get">  //<?=$_SERVER['PHP_SELF']?> comando para enviar para ele mesmo
+        <label for="v1">Valor 1</label>
+        <input type="number" name="v1" id="v1" value="<?=$valor1?>">  //"<?=$valor1?>" substitui o echo quando é apenas printar uma variavel
+        <label for="v2">Valor 2</label>
+        <input type="number" name="v2" id="v2" value="<?=$valor1?>">
+         <input type="submit" value="Somar">
 
 
-
-
-
-
-
-
-
-
-
-
+    </form>
  
+        
+</main>
 
+<section id="resultado">
+    <h2>Resultado Soma</h2>
+    <?php 
+    $soma = $valor1 + $valor2;
+    print "<p>A soma entre os valores $valor1 e $valor2 é igual a $soma</p>"
+    
+    ?>
 
-
-
-
+</section>
+   
+     
+</body>
 
 
 
