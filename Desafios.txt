@@ -1,3 +1,277 @@
+******** Desafio 01 ********
+CODIGO HTML
+
+<body>
+
+    <header>
+          <h1>Deasafio 01</h1>
+         
+    </header>
+
+    <section>
+        <form action="cad.php" method="get">
+            <label for="numero">Numero:</label>
+            <input type="number" name="numero" id="idnumero" >
+
+            
+
+            <input type="submit" value="Calcular">
+
+        </form>
+    </section>
+    
+</body>
+
+
+CODIGO PHP
+
+<body>
+    <header>
+       
+    </header>
+   <main>
+
+    <h1>Resultado Final</h1>
+    
+    <p>
+        <?php
+        $n = $_GET["numero"];
+        $a = $n - 1;
+        $s = $n + 1;
+        echo "O numero escolhido foi <strong>$n</strong> ";
+        echo "<br/>O seu antecessor é $a";
+        print "</br>O seu sucessor é $s";
+        
+        ?>
+    </p>
+
+    <button onclick="javascript:history.go(-1)">&#x2B05; Voltar</button>
+   
+</main>
+   
+     
+</body>
+
+
+******* DESAFIO 2 *******
+
+<body>
+    <header>
+        
+    </header>
+   <main>
+    
+    <?php
+   echo "<h1>Trabalhando com numeros aleatórios</h1>";
+   echo "Gerando um numero aleatorio entre 0 e 100...";
+   echo  "<br/>O valor gerado foi " . mt_rand(1,100);
+    
+    ?>
+   
+  
+    <button onclick="javascript:document.location.reload()">&#x1F504; Gerar outro</button>
+   
+   
+   
+   
+</main>
+   
+     
+</body>
+
+
+******* DESAFIO 3   *********
+
+codigo html
+
+<body>
+
+    <header>
+          <h1>Conversopr de Moedas v1.0</h1>
+         
+    </header>
+
+    <section>
+        
+        <form action="cad.php" method="get">
+            <label for="numero">Quantos R$ voce tem na carateira?</label>
+            <input type="number" name="numero" id="idnumero" step="0.01" >
+
+            
+
+            <input type="submit" value="Converter">
+
+        </form>
+    </section>
+    
+</body>
+
+
+CODIGO PHP
+
+<body>
+    <header>
+        <h1>Conversor de Moedas v1.0</h1>
+    </header>
+   <main>
+    
+    <?php
+    $n = $_GET["numero"];
+    $c = 5.31;
+
+    $dolar = $n / $c;
+    
+  
+    echo "<p>Seus R$" . number_format($n, 2, ",", ".") . " equivalem a US$ " . number_format($dolar, 2, ",", "."). "</p>";
+    echo "<p><br/>Cotação fixa de R$ 5,31 informada diretamente no codigo</p>";
+   
+    
+    ?>   
+
+
+    <button onclick="javascript:history.go(-1)">Voltar</button>
+   
+</main>
+   
+     
+</body>
+
+
+****** DESAFIO 4 *****
+
+CODIGO HTML
+
+<body>
+
+    <header>
+          <h1>Conversopr de Moedas v1.0</h1>
+         
+    </header>
+
+    <section>
+        
+        <form action="cad.php" method="get">
+            <label for="numero">Quantos R$ voce tem na carateira?</label>
+            <input type="number" name="numero" id="idnumero" step="0.01" >
+
+            
+
+            <input type="submit" value="Converter">
+
+        </form>
+    </section>
+    
+</body>
+
+CODIGO PHP
+
+<body>
+    <header>
+        <h1>Conversor de Moedas v1.0</h1>
+    </header>
+   <main>
+    
+    <?php
+     /* ***** INICIO DO CODIGO PARA PEGAR COTAÇÃO ONLINE ***** */
+
+   /*utilizar a data atual do sistema */
+   $inicio = date("m-d-Y", strtotime("-7 days")); /*considerar 7 dias antes */
+   $fim = date("m-d-Y");
+
+
+    /*url gerada no site BC com formato JSON*, foi acrecentado \ para escape nas datas, mas com data fixa, substituir pelas variaveis*/
+    $url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\''. $inicio .'\'&@dataFinalCotacao=\''. $fim .'\'&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
+
+    /*variavel dados para receber o json, com true no final para exibir em array, utilizamos var_dump para visualizar os campos onde foram salvos*/
+    $dados = json_decode(file_get_contents($url), true);
+
+    /* var_dump($dados); */
+
+    /*criamos os campos de acordo com o var_dump */
+    $cotacao = $dados["value"][0]["cotacaoCompra"];
+
+
+    /* ****** FIM DO CODIGO PARA COTAÇÃO ONLINE ***** */
+
+
+    $n = $_GET["numero"];
+    $c = 5.31;
+
+    $dolar = $n / $c;
+    
+  
+    echo "<p>Seus R$" . number_format($n, 2, ",", ".") . " equivalem a US$ " . number_format($dolar, 2, ",", "."). "</p>";
+    echo "<p><br/>Cotação R$ $cotacao informada pelo Banco Central</p>";
+   
+    
+    ?>   
+
+
+    <button onclick="javascript:history.go(-1)">Voltar</button>
+   
+</main>
+   
+     
+</body>
+
+
+****** DESAFIO 5 *******
+
+CODIGO HTML
+
+<body>
+
+    <header>
+          <h1>Analisador de Numero Real</h1>
+         
+    </header>
+
+    <section>
+        
+        <form action="numero.php" method="post">
+            <label for="numero">Analisador de Numero Real</label>
+            <input type="number" name="numero" id="idnumero" step="0.001" >
+
+            
+
+            <input type="submit" value="Analisar">
+
+        </form>
+    </section>
+    
+</body>
+
+
+CODIGO PHP
+
+<body>
+    <main>
+        <h1>Analisador de numero real</h1>
+    
+    <?php 
+    
+    $num = $_POST["numero"];
+
+    echo "<p>Analisando o numero <strong>" . number_format($num, 3, ",", ".") . "</strong> informado pelo usuario:</p>";
+
+    $int = (int)$num;
+    $fra = $num - $int; 
+
+    echo "<ul><li> A parte inteira do numero é <strong>" . number_format($int, 0, ",", ".") . "</strong></li>";
+    echo "<li> A parte fracionaria do numero é <strong>" . number_format($fra, 3, ",", ".") . "</strong></li></ul>";
+    
+    ?>
+
+     <button onclick="javascript:history.go(-1)">Voltar</button>
+    
+
+    </main>
+
+   
+</body>
+
+
+
 ****** Desafio 6 *******
 
 <body>
