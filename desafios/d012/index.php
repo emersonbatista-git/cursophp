@@ -69,20 +69,6 @@
 
         </section>
 
-        <script>
-            //declaracao automatica//
-            mudaValor()
-
-function mudaValor() {
-    p.innerText = reaj.value;
-
-}
-
-        </script>
-
-    
-      
  
-     
 </body>
 </html>

@@ -480,3 +480,195 @@ CODIGO PHP
      
 </body>
 
+
+****** DESAFIO 10 **********
+
+<body>
+
+<?php 
+$atual = date("Y");
+$nasc = $_GET["nasc"] ?? "2000";
+$ano = $_GET["ano"] ?? $atual; 
+   
+
+?>
+    <main>
+        <h1>Calculando a sua idade</h1>
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
+            <label for="nasc">Em que ano voce nasceu?</label>
+            <input type="number" name="nasc" id="idnasc" min="1900" max="<?=$atual?>" value="<?=$nasc?>" >
+            <label for="ano">Quer saber sua idade em que ano? (Atualmente estamos em <strong><?=$atual?></strong>)</label>
+            <input type="number" name="ano" id="ano" min="1900" value="<?=$ano?>">
+                       
+            
+            <input type="submit" value="Qual será minha idade?">
+
+
+
+        </form>
+
+        <section>
+            
+            <?php
+
+            $idade = $ano - $nasc;
+
+            ?>
+
+            <h2>Resultado</h2>
+            
+            <p>Quem nasceu em <?=$nasc?> vai ter <strong><?=$idade?> anos</strong> em <?=$ano?>!</p>
+
+
+            
+
+            
+
+        </section>
+
+    </main>
+
+    
+      
+ 
+     
+</body>
+
+
+
+****** DESAFIO 11 **********
+
+
+<body>
+
+<?php 
+    $preco = $_GET['preco'] ?? '0';
+    $reaj = $_GET['reaj'] ?? '0';
+   
+
+?>
+    <main>
+        <h1>Reajustador de Preços</h1>
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
+            <label for="preco">Preço do Produto (R$)</label>
+            <input type="number" name="preco" id="preco" min="0.10" step="0.01" value="<?=$preco?>">
+
+            <label for="reaj">Qual será o percentual de reajuste? (<strong> <span id="p">?</span>%</strong>) </label>
+            <input type="range" name="reaj" id="reaj" min="0" max="100" step="1" oninput="mudaValor()" value="<?=$reaj?>">
+
+
+
+            <input type="submit" value="Reajustar">
+            
+                       
+            
+           
+
+
+        </form>
+
+       
+
+    </main>
+
+     <section>
+            
+            <?php
+            $aumento = ($preco * $reaj) / 100;
+            $novo = $preco + $aumento;
+           
+
+            ?>
+
+            <h2>Resultado do Reajuste</h2>
+            
+            <p>O produto que custava R$<?=number_format($preco, 2 , "," , ".")?>, com <strong><?=$reaj?>% de aumento</strong> vai passar a custar <strong>R$<?=number_format($novo, 2 , "," , ".")?></strong> a partir de agora. </p>
+
+       
+
+        </section>
+
+        <script>
+            //declaracao automatica//
+            mudaValor()
+
+function mudaValor() {
+    p.innerText = reaj.value;
+
+}
+
+        </script>
+
+    
+      
+ 
+     
+</body>
+
+
+
+****** DESAFIO 12 **********
+
+<body>
+
+<?php 
+    $total = $_GET ['seg'] ?? 0;
+
+?>
+    <main>
+        <h1>Calculadora de Tempo</h1>
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
+            <label for="seg">Qual o total de segundos?</label>
+            <input type="number" name="seg" id="seg" min="0" step="1" required value="<?=$total?>">
+
+            
+            <input type="submit" value="Calcular">
+          
+        </form>
+
+    </main>
+
+        <?php
+        $sobra = $total;
+
+        //Total de semanas
+        $semana = (int)($sobra / 604_800);
+        $sobra = $sobra % 604_800;
+
+        //Total de dias
+        $dia = (int)($sobra / 86_400);
+        $sobra = $sobra % 86_400;
+
+        //Total de horas
+        $hora = (int)($sobra / 3_600);
+        $sobra = $sobra % 3_600;
+
+        //Total de Minutos
+        $minuto = (int)($sobra / 60);
+        $sobra = $sobra % 60;
+
+        //Total de segundos
+        $segundo = $sobra;
+
+        ?>
+
+     <section>
+            
+           <h2>Totalizndo Tudo</h2>
+            
+            <p>Analisando o valor que voce digitou, <strong><?= number_format($total, 0 , "," , ".")?> segundos</strong> equivalem a um total de:</p>
+            <ul>
+                <li><?=$semana?> semanas</li>
+                <li><?=$dia?> dias</li>
+                <li><?=$hora?> horas</li>
+                <li><?=$minuto?> minutos</li>
+                <li><?=$segundo?> segundos</li>
+                
+            </ul>
+    
+        </section>
+
+
+     
+</body>
+
