@@ -36,7 +36,7 @@
 
 
     $n = $_GET["numero"];
-    $c = 5.31;
+    $c = $cotacao;
 
     $dolar = $n / $c;
     
